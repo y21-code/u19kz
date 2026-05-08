@@ -1404,16 +1404,25 @@ footer { flex-direction: column; gap: 24px; padding: 48px 32px; }
   // ═══ SKILLS BARS ═══
   (function() {
     const bars = document.querySelectorAll('.skill-bar-fill');
-    const skillObserver = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const pct = entry.target.getAttribute('data-pct');
-          setTimeout(() => { entry.target.style.width = pct + '%'; }, 200);
-          skillObserver.unobserve(entry.target);
+    bars.forEach(b => { b.style.width = '0%'; b.style.transition = 'none'; });
+
+    function animateBars() {
+      bars.forEach((b, i) => {
+        const pct = b.getAttribute('data-pct');
+        const rect = b.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 40) {
+          setTimeout(() => {
+            b.style.transition = 'width 1.4s cubic-bezier(0.4,0,0.2,1)';
+            b.style.width = pct + '%';
+          }, i * 120);
+          b._done = true;
         }
       });
-    }, { threshold: 0.3 });
-    bars.forEach(b => skillObserver.observe(b));
+      if ([...bars].some(b => !b._done)) requestAnimationFrame(animateBars);
+    }
+
+    setTimeout(animateBars, 400);
+    window.addEventListener('scroll', animateBars, { passive: true });
   })();
 
   // ═══ COUNTDOWN ═══
