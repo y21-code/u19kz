@@ -246,6 +246,31 @@
 .hero-right { z-index: 2; }
 .scroll-hint { z-index: 3; }
 
+/* COUNTDOWN */
+.countdown-section { padding: 100px 80px; z-index: 2; position: relative; background: var(–dark); overflow: hidden; }
+.countdown-section::before { content: ‘’; position: absolute; inset: 0; background: radial-gradient(ellipse at center, rgba(201,168,76,0.06) 0%, transparent 65%); pointer-events: none; }
+.countdown-inner { text-align: center; position: relative; z-index: 2; }
+.countdown-tag { font-size: 10px; letter-spacing: 0.5em; color: var(–gold); text-transform: uppercase; margin-bottom: 20px; }
+.countdown-title { font-family: ‘Cormorant Garamond’, serif; font-size: clamp(32px, 5vw, 64px); font-weight: 300; font-style: italic; color: var(–cream); margin-bottom: 12px; line-height: 1.1; }
+.countdown-subtitle { font-size: 11px; letter-spacing: 0.3em; color: var(–text-muted); text-transform: uppercase; margin-bottom: 64px; }
+.countdown-blocks { display: flex; align-items: center; justify-content: center; gap: 0; }
+.countdown-block { padding: 40px 48px; position: relative; text-align: center; }
+.countdown-block::before { content: ‘’; position: absolute; inset: 0; border: 1px solid rgba(201,168,76,0.12); }
+.countdown-block:hover::before { border-color: rgba(201,168,76,0.3); }
+.countdown-block + .countdown-block { margin-left: -1px; }
+.cd-num { font-family: ‘Cormorant Garamond’, serif; font-size: clamp(56px, 8vw, 96px); font-weight: 300; color: var(–gold-light); line-height: 1; display: block; transition: transform 0.3s ease; }
+.countdown-block:hover .cd-num { transform: scale(1.05); }
+.cd-label { font-size: 9px; letter-spacing: 0.4em; color: var(–text-muted); text-transform: uppercase; margin-top: 12px; display: block; }
+.cd-sep { font-family: ‘Cormorant Garamond’, serif; font-size: 64px; color: rgba(201,168,76,0.2); align-self: center; padding: 0 4px; margin-top: -16px; }
+.countdown-date { margin-top: 48px; font-size: 11px; letter-spacing: 0.3em; color: var(–text-muted); text-transform: uppercase; }
+.countdown-date span { color: var(–gold); }
+.countdown-done { font-family: ‘Cormorant Garamond’, serif; font-size: 48px; font-style: italic; color: var(–gold-light); display: none; }
+@media (max-width: 900px) {
+.countdown-section { padding: 80px 32px; }
+.countdown-block { padding: 28px 20px; }
+.cd-sep { font-size: 40px; }
+}
+  
 /* CHALLENGE */
 .challenge-section { padding: 120px 80px; z-index: 2; position: relative; background: var(–dark2); border-top: 1px solid rgba(201,168,76,0.1); border-bottom: 1px solid rgba(201,168,76,0.1); overflow: hidden; }
 .challenge-section::before { content: ‘’; position: absolute; top: -200px; right: -200px; width: 500px; height: 500px; border-radius: 50%; background: radial-gradient(circle, rgba(201,168,76,0.04) 0%, transparent 70%); pointer-events: none; }
