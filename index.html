@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 
 <html lang="ru">
@@ -7,11 +8,17 @@
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-HJF4J9NYR1');
+  gtag("js", new Date());
+  gtag("config", "G-HJF4J9NYR1");
 </script>
-  
+
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag("js", new Date());
+  gtag("config", "G-7PXTYXD3EC");
+</script>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Abdulla — Footballer & Developer</title>
@@ -233,6 +240,60 @@
 .track-row { padding: 16px 24px; }
 .gallery-grid { grid-template-columns: repeat(2, 1fr); }
 }
+/* MOTION 3D */
+#particleCanvas { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 1; pointer-events: none; }
+.hero { position: relative; }
+.hero-left { z-index: 3; }
+.hero-right { z-index: 2; }
+.scroll-hint { z-index: 3; }
+
+/* SKILLS */
+.skills-section { padding: 120px 80px; z-index: 2; position: relative; background: var(–dark2); border-top: 1px solid rgba(201,168,76,0.1); border-bottom: 1px solid rgba(201,168,76,0.1); }
+.skills-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; margin-top: 60px; }
+.skills-group-title { font-size: 10px; letter-spacing: 0.4em; color: var(–gold); text-transform: uppercase; margin-bottom: 40px; display: flex; align-items: center; gap: 16px; }
+.skills-group-title::after { content: ‘’; flex: 1; height: 1px; background: rgba(201,168,76,0.15); }
+.skill-item { margin-bottom: 32px; }
+.skill-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 10px; }
+.skill-name { font-size: 12px; color: var(–cream); letter-spacing: 0.05em; }
+.skill-pct { font-family: ‘Cormorant Garamond’, serif; font-size: 22px; font-weight: 300; color: var(–gold-light); }
+.skill-bar-bg { height: 2px; background: rgba(201,168,76,0.1); position: relative; }
+.skill-bar-fill { height: 100%; background: linear-gradient(90deg, var(–gold), var(–gold-light)); width: 0%; transition: width 1.2s cubic-bezier(0.4,0,0.2,1); position: relative; }
+.skill-bar-fill::after { content: ‘’; position: absolute; right: 0; top: -3px; width: 8px; height: 8px; border-radius: 50%; background: var(–gold-light); box-shadow: 0 0 10px rgba(201,168,76,0.8); }
+.skill-sport { text-align: center; padding: 48px; border: 1px solid rgba(201,168,76,0.15); position: relative; overflow: hidden; transition: background 0.3s; }
+.skill-sport:hover { background: rgba(201,168,76,0.04); }
+.skill-sport::before { content: ‘’; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, var(–gold), transparent); }
+.skill-sport-icon { font-size: 48px; margin-bottom: 20px; }
+.skill-sport-title { font-family: ‘Cormorant Garamond’, serif; font-size: 32px; font-weight: 300; color: var(–cream); margin-bottom: 8px; }
+.skill-sport-badge { display: inline-block; font-size: 10px; letter-spacing: 0.3em; color: var(–gold); border: 1px solid rgba(201,168,76,0.3); padding: 8px 20px; text-transform: uppercase; margin-top: 8px; }
+.skill-sport-desc { font-size: 11px; color: var(–text-muted); line-height: 2; margin-top: 16px; }
+@media (max-width: 900px) {
+.skills-section { padding: 80px 32px; }
+.skills-grid { grid-template-columns: 1fr; gap: 48px; }
+}
+/* COUNTDOWN */
+.countdown-section { padding: 100px 80px; z-index: 2; position: relative; background: var(–dark); overflow: hidden; }
+.countdown-section::before { content: ‘’; position: absolute; inset: 0; background: radial-gradient(ellipse at center, rgba(201,168,76,0.06) 0%, transparent 65%); pointer-events: none; }
+.countdown-inner { text-align: center; position: relative; z-index: 2; }
+.countdown-tag { font-size: 10px; letter-spacing: 0.5em; color: var(–gold); text-transform: uppercase; margin-bottom: 20px; }
+.countdown-title { font-family: ‘Cormorant Garamond’, serif; font-size: clamp(32px, 5vw, 64px); font-weight: 300; font-style: italic; color: var(–cream); margin-bottom: 12px; line-height: 1.1; }
+.countdown-subtitle { font-size: 11px; letter-spacing: 0.3em; color: var(–text-muted); text-transform: uppercase; margin-bottom: 64px; }
+.countdown-blocks { display: flex; align-items: center; justify-content: center; gap: 0; }
+.countdown-block { padding: 40px 48px; position: relative; text-align: center; }
+.countdown-block::before { content: ‘’; position: absolute; inset: 0; border: 1px solid rgba(201,168,76,0.12); }
+.countdown-block:hover::before { border-color: rgba(201,168,76,0.3); }
+.countdown-block + .countdown-block { margin-left: -1px; }
+.cd-num { font-family: ‘Cormorant Garamond’, serif; font-size: clamp(56px, 8vw, 96px); font-weight: 300; color: var(–gold-light); line-height: 1; display: block; transition: transform 0.3s ease; }
+.countdown-block:hover .cd-num { transform: scale(1.05); }
+.cd-label { font-size: 9px; letter-spacing: 0.4em; color: var(–text-muted); text-transform: uppercase; margin-top: 12px; display: block; }
+.cd-sep { font-family: ‘Cormorant Garamond’, serif; font-size: 64px; color: rgba(201,168,76,0.2); align-self: center; padding: 0 4px; margin-top: -16px; }
+.countdown-date { margin-top: 48px; font-size: 11px; letter-spacing: 0.3em; color: var(–text-muted); text-transform: uppercase; }
+.countdown-date span { color: var(–gold); }
+.countdown-done { font-family: ‘Cormorant Garamond’, serif; font-size: 48px; font-style: italic; color: var(–gold-light); display: none; }
+@media (max-width: 900px) {
+.countdown-section { padding: 80px 32px; }
+.countdown-block { padding: 28px 20px; }
+.cd-sep { font-size: 40px; }
+}
 /* CHALLENGE */
 .challenge-section { padding: 120px 80px; z-index: 2; position: relative; background: var(–dark2); border-top: 1px solid rgba(201,168,76,0.1); border-bottom: 1px solid rgba(201,168,76,0.1); overflow: hidden; }
 .challenge-section::before { content: ‘’; position: absolute; top: -200px; right: -200px; width: 500px; height: 500px; border-radius: 50%; background: radial-gradient(circle, rgba(201,168,76,0.04) 0%, transparent 70%); pointer-events: none; }
@@ -348,6 +409,7 @@ footer { flex-direction: column; gap: 24px; padding: 48px 32px; }
 <!-- HERO -->
 
 <section class="hero">
+  <canvas id="particleCanvas"></canvas>
   <div class="hero-left">
     <div class="hero-tag">Portfolio · 2026</div>
     <h1 class="hero-name">Abdulla</h1>
@@ -355,7 +417,7 @@ footer { flex-direction: column; gap: 24px; padding: 48px 32px; }
     <p class="hero-desc">
       <span>Футболист. Программист.</span><br>
       Я не сторонник пустых разговоров и не люблю хвалить себя или писать длинные тексты. Если коротко и по делу. Проф футбол научил меня дисциплине, код - логике, а свои проекты  - ответственности. Каждый день просто стараюсь стать лучше, чем был вчера.
-Предпочитаю, чтобы за меня говорили мои результаты, а не слова.<br>
+      Предпочитаю, чтобы за меня говорили мои результаты, а не слова.<br>
       Без лишнего пафоса.
     </p>
     <a href="https://instagram.com/u19kz" target="_blank" class="insta-btn">
@@ -392,9 +454,9 @@ footer { flex-direction: column; gap: 24px; padding: 48px 32px; }
       и пишу код.
     </div>
     <div class="about-text reveal">
-      <p>Меня зовут <strong>Abdulla</strong>. Я <strong>Founder / Стартапер</strong> у меня уже два собственных проекта, которые я развиваю прямо сейчас. </p>
-      <p>Сейчас всё свободное время вкладываю в развитие своих проектов. </p>
-      <p>Говорят, дисциплина из спорта помогает лучше писать код, а логика из кода – думать на поле. Ну, звучит неплохо, и кажется у меня это работает. Два сапога – пара, как говорится.</p>
+      <p>Меня зовут <strong>Abdulla</strong> Я <strong>Founder / Стартапер</strong> у меня уже два собственных проекта, которые я развиваю прямо сейчас. </p>
+      <p>Сейчас всё свободное время вкладываю в развитие своих проектов.</p>
+      <p>Говорят, дисциплина из спорта помогает лучше писать код, а логика из кода – думать на поле. Ну, звучит неплохо и кажется у меня это работает. Два сапога – пара, как говорится.</p>
     </div>
   </div>
   <div class="stats reveal">
@@ -549,6 +611,123 @@ footer { flex-direction: column; gap: 24px; padding: 48px 32px; }
       <div class="book-title">Богатый папа, бедный папа</div>
       <div class="book-author">Роберт Кийосаки</div>
     </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+
+<section class="skills-section">
+  <div class="section-label">Навыки</div>
+  <div class="skills-grid">
+
+```
+<!-- Sport -->
+<div class="reveal">
+  <div class="skills-group-title">⚽ Спорт</div>
+  <div class="skill-sport">
+    <div class="skill-sport-icon">⚽</div>
+    <div class="skill-sport-title">Футбол</div>
+    <div class="skill-sport-badge">КМС — Кандидат в мастера спорта</div>
+    <div class="skill-sport-desc">Годы тренировок, дисциплина и командный дух.<br>Футбол — это не просто игра, это образ жизни.</div>
+  </div>
+</div>
+
+<!-- Programming -->
+<div class="reveal">
+  <div class="skills-group-title">💻 Программирование</div>
+
+  <div class="skill-item">
+    <div class="skill-header">
+      <div class="skill-name">JavaScript</div>
+      <div class="skill-pct">70%</div>
+    </div>
+    <div class="skill-bar-bg"><div class="skill-bar-fill" data-pct="70"></div></div>
+  </div>
+
+  <div class="skill-item">
+    <div class="skill-header">
+      <div class="skill-name">Go</div>
+      <div class="skill-pct">70%</div>
+    </div>
+    <div class="skill-bar-bg"><div class="skill-bar-fill" data-pct="70"></div></div>
+  </div>
+
+  <div class="skill-item">
+    <div class="skill-header">
+      <div class="skill-name">React</div>
+      <div class="skill-pct">65%</div>
+    </div>
+    <div class="skill-bar-bg"><div class="skill-bar-fill" data-pct="65"></div></div>
+  </div>
+
+  <div class="skill-item">
+    <div class="skill-header">
+      <div class="skill-name">Python</div>
+      <div class="skill-pct">60%</div>
+    </div>
+    <div class="skill-bar-bg"><div class="skill-bar-fill" data-pct="60"></div></div>
+  </div>
+
+  <div class="skill-item">
+    <div class="skill-header">
+      <div class="skill-name">SQL & Базы данных</div>
+      <div class="skill-pct">60%</div>
+    </div>
+    <div class="skill-bar-bg"><div class="skill-bar-fill" data-pct="60"></div></div>
+  </div>
+
+  <div class="skill-item">
+    <div class="skill-header">
+      <div class="skill-name">Node.js</div>
+      <div class="skill-pct">55%</div>
+    </div>
+    <div class="skill-bar-bg"><div class="skill-bar-fill" data-pct="55"></div></div>
+  </div>
+
+  <div class="skill-item" style="margin-bottom:0;">
+    <div class="skill-header">
+      <div class="skill-name">И многое другое...</div>
+      <div class="skill-pct" style="color:var(--text-muted);font-size:16px;">∞</div>
+    </div>
+    <div class="skill-bar-bg"><div class="skill-bar-fill" data-pct="50" style="background:linear-gradient(90deg,rgba(201,168,76,0.3),rgba(201,168,76,0.1));"></div></div>
+  </div>
+
+</div>
+```
+
+  </div>
+</section>
+
+<!-- COUNTDOWN -->
+
+<section class="countdown-section">
+  <div class="countdown-inner reveal">
+    <div class="countdown-tag">🚀 Запуск проекта</div>
+    <div class="countdown-title">O-GO App</div>
+    <div class="countdown-subtitle">До официального запуска осталось</div>
+    <div class="countdown-blocks">
+      <div class="countdown-block">
+        <span class="cd-num" id="cdDays">000</span>
+        <span class="cd-label">Дней</span>
+      </div>
+      <div class="cd-sep">:</div>
+      <div class="countdown-block">
+        <span class="cd-num" id="cdHours">00</span>
+        <span class="cd-label">Часов</span>
+      </div>
+      <div class="cd-sep">:</div>
+      <div class="countdown-block">
+        <span class="cd-num" id="cdMins">00</span>
+        <span class="cd-label">Минут</span>
+      </div>
+      <div class="cd-sep">:</div>
+      <div class="countdown-block">
+        <span class="cd-num" id="cdSecs">00</span>
+        <span class="cd-label">Секунд</span>
+      </div>
+    </div>
+    <div class="countdown-done" id="cdDone">O-GO запущен! 🚀</div>
+    <div class="countdown-date">Дата запуска — <span>1 августа 2026</span></div>
   </div>
 </section>
 
@@ -800,7 +979,7 @@ footer { flex-direction: column; gap: 24px; padding: 48px 32px; }
         </div>
         <div class="legend-item">
           <div class="legend-dot visited"></div>
-          <div class="legend-flag">🇰🇿</div>
+          <div class="legend-flag">��🇿</div>
           <div class="legend-name">Казахстан</div>
           <div class="legend-status">Посещено</div>
         </div>
@@ -848,6 +1027,36 @@ footer { flex-direction: column; gap: 24px; padding: 48px 32px; }
           <div class="legend-flag">🇮🇹</div>
           <div class="legend-name">Италия</div>
           <div class="legend-status">Скоро</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Travel status -->
+
+  <div class="reveal" style="margin-top:48px;border:1px solid rgba(201,168,76,0.12);padding:40px 48px;background:rgba(201,168,76,0.03);position:relative;overflow:hidden;">
+    <div style="position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(201,168,76,0.4),transparent);"></div>
+    <div style="font-size:10px;letter-spacing:0.4em;color:var(--gold);text-transform:uppercase;margin-bottom:28px;">⚡ Визовый статус</div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px;">
+      <div style="display:flex;align-items:center;gap:14px;padding:16px 0;border-bottom:1px solid rgba(201,168,76,0.07);">
+        <span style="font-size:20px;">🇺🇸</span>
+        <div>
+          <div style="font-size:12px;color:var(--cream);margin-bottom:3px;">США</div>
+          <div style="font-size:10px;letter-spacing:0.2em;color:var(--gold);text-transform:uppercase;">Американская виза · В процессе ⏳</div>
+        </div>
+      </div>
+      <div style="display:flex;align-items:center;gap:14px;padding:16px 0;border-bottom:1px solid rgba(201,168,76,0.07);">
+        <span style="font-size:20px;">🇪🇺</span>
+        <div>
+          <div style="font-size:12px;color:var(--cream);margin-bottom:3px;">Европа</div>
+          <div style="font-size:10px;letter-spacing:0.2em;color:var(--gold);text-transform:uppercase;">Шенгенская виза · В процессе ⏳</div>
+        </div>
+      </div>
+      <div style="display:flex;align-items:center;gap:14px;padding:16px 0;">
+        <span style="font-size:20px;">🌍</span>
+        <div>
+          <div style="font-size:12px;color:var(--cream);margin-bottom:3px;">Мир ждёт</div>
+          <div style="font-size:10px;letter-spacing:0.2em;color:var(--text-muted);text-transform:uppercase;">Список растёт · Следи за обновлениями</div>
         </div>
       </div>
     </div>
@@ -1063,8 +1272,7 @@ footer { flex-direction: column; gap: 24px; padding: 48px 32px; }
 
   // ═══ GALLERY ═══
   (function() {
-    const KEY = 'abdulla_gallery';
-    let photos = JSON.parse(localStorage.getItem(KEY) || '[]');
+    const PHOTOS = []; // Abdulla добавляет фото напрямую в код
     const SLOTS = 9;
     const grid = document.getElementById('galleryGrid');
 
@@ -1073,47 +1281,175 @@ footer { flex-direction: column; gap: 24px; padding: 48px 32px; }
       for (let i = 0; i < SLOTS; i++) {
         const item = document.createElement('div');
         item.className = 'gallery-item';
-        if (photos[i]) {
+        if (PHOTOS[i]) {
           const img = document.createElement('img');
-          img.src = photos[i];
+          img.src = PHOTOS[i];
+          img.alt = 'Момент ' + (i+1);
           item.appendChild(img);
           const overlay = document.createElement('div');
           overlay.className = 'gallery-item-overlay';
-          overlay.innerHTML = '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="rgba(201,168,76,0.8)" stroke-width="1.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>';
+          overlay.innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(201,168,76,0.9)" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>';
           item.appendChild(overlay);
-          const input = document.createElement('input');
-          input.type = 'file'; input.accept = 'image/*';
-          const idx = i;
-          input.addEventListener('change', e => handlePhoto(e, idx));
-          item.appendChild(input);
         } else {
           const inner = document.createElement('div');
           inner.className = 'gallery-item-inner';
-          inner.innerHTML = '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" style="opacity:0.3"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><span class="gallery-add-text">+ Добавить фото</span>';
+          inner.innerHTML = '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" style="opacity:0.15"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>';
           item.appendChild(inner);
-          const input = document.createElement('input');
-          input.type = 'file'; input.accept = 'image/*';
-          const idx = i;
-          input.addEventListener('change', e => handlePhoto(e, idx));
-          item.appendChild(input);
         }
         grid.appendChild(item);
       }
     }
+    renderGallery();
+  })();
 
-    function handlePhoto(e, idx) {
-      const file = e.target.files[0];
-      if (!file) return;
-      const reader = new FileReader();
-      reader.onload = ev => {
-        photos[idx] = ev.target.result;
-        localStorage.setItem(KEY, JSON.stringify(photos));
-        renderGallery();
+
+
+
+  // ═══ MOTION 3D ═══
+  (function() {
+
+    // ── 1. PARTICLE CANVAS ──
+    const canvas = document.getElementById('particleCanvas');
+    const ctx = canvas.getContext('2d');
+    let W, H, particles = [];
+    let mouseX = 0, mouseY = 0;
+
+    function resize() {
+      const hero = canvas.parentElement;
+      W = canvas.width = hero.offsetWidth;
+      H = canvas.height = hero.offsetHeight;
+    }
+    resize();
+    window.addEventListener('resize', resize);
+
+    function createParticle() {
+      return {
+        x: Math.random() * W,
+        y: Math.random() * H,
+        z: Math.random() * 2 + 0.2,
+        vx: (Math.random() - 0.5) * 0.4,
+        vy: (Math.random() - 0.5) * 0.4,
+        r: Math.random() * 1.8 + 0.3,
+        alpha: Math.random() * 0.6 + 0.1,
+        pulse: Math.random() * Math.PI * 2,
       };
-      reader.readAsDataURL(file);
     }
 
-    renderGallery();
+    for (let i = 0; i < 120; i++) particles.push(createParticle());
+
+    function drawParticles() {
+      ctx.clearRect(0, 0, W, H);
+      const t = Date.now() * 0.001;
+      particles.forEach(p => {
+        // Mouse repel
+        const dx = p.x - mouseX, dy = p.y - mouseY;
+        const dist = Math.sqrt(dx*dx + dy*dy);
+        if (dist < 120) {
+          p.vx += (dx / dist) * 0.3;
+          p.vy += (dy / dist) * 0.3;
+        }
+        // Speed limit
+        const spd = Math.sqrt(p.vx*p.vx + p.vy*p.vy);
+        if (spd > 1.5) { p.vx *= 1.5/spd; p.vy *= 1.5/spd; }
+        // Drift back to normal speed
+        p.vx *= 0.99; p.vy *= 0.99;
+        p.x += p.vx * p.z;
+        p.y += p.vy * p.z;
+        // Wrap
+        if (p.x < 0) p.x = W; if (p.x > W) p.x = 0;
+        if (p.y < 0) p.y = H; if (p.y > H) p.y = 0;
+        // Pulse alpha
+        const a = p.alpha * (0.7 + 0.3 * Math.sin(t * 1.5 + p.pulse));
+        const r = p.r * p.z;
+        // Glow
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, r * 2.5, 0, Math.PI * 2);
+        const grd = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, r * 2.5);
+        grd.addColorStop(0, `rgba(201,168,76,${a * 0.4})`);
+        grd.addColorStop(1, 'rgba(201,168,76,0)');
+        ctx.fillStyle = grd;
+        ctx.fill();
+        // Core dot
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, r, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(232,208,138,${a})`;
+        ctx.fill();
+      });
+
+      // Connect nearby particles
+      for (let i = 0; i < particles.length; i++) {
+        for (let j = i+1; j < particles.length; j++) {
+          const dx = particles[i].x - particles[j].x;
+          const dy = particles[i].y - particles[j].y;
+          const d = Math.sqrt(dx*dx + dy*dy);
+          if (d < 80) {
+            ctx.beginPath();
+            ctx.moveTo(particles[i].x, particles[i].y);
+            ctx.lineTo(particles[j].x, particles[j].y);
+            ctx.strokeStyle = `rgba(201,168,76,${0.12 * (1 - d/80)})`;
+            ctx.lineWidth = 0.5;
+            ctx.stroke();
+          }
+        }
+      }
+      requestAnimationFrame(drawParticles);
+    }
+    drawParticles();
+
+    // Track mouse over hero
+    const hero = document.querySelector('.hero');
+    hero.addEventListener('mousemove', e => {
+      const rect = hero.getBoundingClientRect();
+      mouseX = e.clientX - rect.left;
+      mouseY = e.clientY - rect.top;
+    });
+
+
+
+  })();
+
+  // ═══ SKILLS BARS ═══
+  (function() {
+    const bars = document.querySelectorAll('.skill-bar-fill');
+    const skillObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const pct = entry.target.getAttribute('data-pct');
+          setTimeout(() => { entry.target.style.width = pct + '%'; }, 200);
+          skillObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.3 });
+    bars.forEach(b => skillObserver.observe(b));
+  })();
+
+  // ═══ COUNTDOWN ═══
+  (function() {
+    const target = new Date('2026-08-01T00:00:00').getTime();
+    function pad(n, len) { return String(n).padStart(len || 2, '0'); }
+    function tick() {
+      const now = Date.now();
+      const diff = target - now;
+      if (diff <= 0) {
+        document.querySelector('.countdown-blocks').style.display = 'none';
+        document.getElementById('cdDone').style.display = 'block';
+        return;
+      }
+      const d = Math.floor(diff / 86400000);
+      const h = Math.floor((diff % 86400000) / 3600000);
+      const m = Math.floor((diff % 3600000) / 60000);
+      const s = Math.floor((diff % 60000) / 1000);
+      document.getElementById('cdDays').textContent = pad(d, 3);
+      document.getElementById('cdHours').textContent = pad(h);
+      document.getElementById('cdMins').textContent = pad(m);
+      // Секунды с анимацией
+      const secEl = document.getElementById('cdSecs');
+      secEl.textContent = pad(s);
+      secEl.style.transform = 'scale(1.06)';
+      setTimeout(() => secEl.style.transform = 'scale(1)', 200);
+    }
+    tick();
+    setInterval(tick, 1000);
   })();
 
   // ═══ CHALLENGE ═══
