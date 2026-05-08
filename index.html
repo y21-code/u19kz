@@ -246,53 +246,6 @@
 .hero-right { z-index: 2; }
 .scroll-hint { z-index: 3; }
 
-/* SKILLS */
-.skills-section { padding: 120px 80px; z-index: 2; position: relative; background: var(–dark2); border-top: 1px solid rgba(201,168,76,0.1); border-bottom: 1px solid rgba(201,168,76,0.1); }
-.skills-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; margin-top: 60px; }
-.skills-group-title { font-size: 10px; letter-spacing: 0.4em; color: var(–gold); text-transform: uppercase; margin-bottom: 40px; display: flex; align-items: center; gap: 16px; }
-.skills-group-title::after { content: ‘’; flex: 1; height: 1px; background: rgba(201,168,76,0.15); }
-.skill-item { margin-bottom: 32px; }
-.skill-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 10px; }
-.skill-name { font-size: 12px; color: var(–cream); letter-spacing: 0.05em; }
-.skill-pct { font-family: ‘Cormorant Garamond’, serif; font-size: 22px; font-weight: 300; color: var(–gold-light); }
-.skill-bar-bg { height: 2px; background: rgba(201,168,76,0.1); position: relative; }
-.skill-bar-fill { height: 100%; background: linear-gradient(90deg, var(–gold), var(–gold-light)); width: 0%; transition: width 1.2s cubic-bezier(0.4,0,0.2,1); position: relative; }
-.skill-bar-fill::after { content: ‘’; position: absolute; right: 0; top: -3px; width: 8px; height: 8px; border-radius: 50%; background: var(–gold-light); box-shadow: 0 0 10px rgba(201,168,76,0.8); }
-.skill-sport { text-align: center; padding: 48px; border: 1px solid rgba(201,168,76,0.15); position: relative; overflow: hidden; transition: background 0.3s; }
-.skill-sport:hover { background: rgba(201,168,76,0.04); }
-.skill-sport::before { content: ‘’; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, var(–gold), transparent); }
-.skill-sport-icon { font-size: 48px; margin-bottom: 20px; }
-.skill-sport-title { font-family: ‘Cormorant Garamond’, serif; font-size: 32px; font-weight: 300; color: var(–cream); margin-bottom: 8px; }
-.skill-sport-badge { display: inline-block; font-size: 10px; letter-spacing: 0.3em; color: var(–gold); border: 1px solid rgba(201,168,76,0.3); padding: 8px 20px; text-transform: uppercase; margin-top: 8px; }
-.skill-sport-desc { font-size: 11px; color: var(–text-muted); line-height: 2; margin-top: 16px; }
-@media (max-width: 900px) {
-.skills-section { padding: 80px 32px; }
-.skills-grid { grid-template-columns: 1fr; gap: 48px; }
-}
-/* COUNTDOWN */
-.countdown-section { padding: 100px 80px; z-index: 2; position: relative; background: var(–dark); overflow: hidden; }
-.countdown-section::before { content: ‘’; position: absolute; inset: 0; background: radial-gradient(ellipse at center, rgba(201,168,76,0.06) 0%, transparent 65%); pointer-events: none; }
-.countdown-inner { text-align: center; position: relative; z-index: 2; }
-.countdown-tag { font-size: 10px; letter-spacing: 0.5em; color: var(–gold); text-transform: uppercase; margin-bottom: 20px; }
-.countdown-title { font-family: ‘Cormorant Garamond’, serif; font-size: clamp(32px, 5vw, 64px); font-weight: 300; font-style: italic; color: var(–cream); margin-bottom: 12px; line-height: 1.1; }
-.countdown-subtitle { font-size: 11px; letter-spacing: 0.3em; color: var(–text-muted); text-transform: uppercase; margin-bottom: 64px; }
-.countdown-blocks { display: flex; align-items: center; justify-content: center; gap: 0; }
-.countdown-block { padding: 40px 48px; position: relative; text-align: center; }
-.countdown-block::before { content: ‘’; position: absolute; inset: 0; border: 1px solid rgba(201,168,76,0.12); }
-.countdown-block:hover::before { border-color: rgba(201,168,76,0.3); }
-.countdown-block + .countdown-block { margin-left: -1px; }
-.cd-num { font-family: ‘Cormorant Garamond’, serif; font-size: clamp(56px, 8vw, 96px); font-weight: 300; color: var(–gold-light); line-height: 1; display: block; transition: transform 0.3s ease; }
-.countdown-block:hover .cd-num { transform: scale(1.05); }
-.cd-label { font-size: 9px; letter-spacing: 0.4em; color: var(–text-muted); text-transform: uppercase; margin-top: 12px; display: block; }
-.cd-sep { font-family: ‘Cormorant Garamond’, serif; font-size: 64px; color: rgba(201,168,76,0.2); align-self: center; padding: 0 4px; margin-top: -16px; }
-.countdown-date { margin-top: 48px; font-size: 11px; letter-spacing: 0.3em; color: var(–text-muted); text-transform: uppercase; }
-.countdown-date span { color: var(–gold); }
-.countdown-done { font-family: ‘Cormorant Garamond’, serif; font-size: 48px; font-style: italic; color: var(–gold-light); display: none; }
-@media (max-width: 900px) {
-.countdown-section { padding: 80px 32px; }
-.countdown-block { padding: 28px 20px; }
-.cd-sep { font-size: 40px; }
-}
 /* CHALLENGE */
 .challenge-section { padding: 120px 80px; z-index: 2; position: relative; background: var(–dark2); border-top: 1px solid rgba(201,168,76,0.1); border-bottom: 1px solid rgba(201,168,76,0.1); overflow: hidden; }
 .challenge-section::before { content: ‘’; position: absolute; top: -200px; right: -200px; width: 500px; height: 500px; border-radius: 50%; background: radial-gradient(circle, rgba(201,168,76,0.04) 0%, transparent 70%); pointer-events: none; }
@@ -610,88 +563,6 @@ footer { flex-direction: column; gap: 24px; padding: 48px 32px; }
       <div class="book-title">Богатый папа, бедный папа</div>
       <div class="book-author">Роберт Кийосаки</div>
     </div>
-  </div>
-</section>
-
-<!-- SKILLS -->
-
-<section class="skills-section">
-  <div class="section-label">Навыки</div>
-  <div class="skills-grid">
-
-<!-- Sport -->
-<div class="reveal">
-  <div class="skills-group-title">⚽ Спорт</div>
-  <div class="skill-sport">
-    <div class="skill-sport-icon">⚽</div>
-    <div class="skill-sport-title">Футбол</div>
-    <div class="skill-sport-badge">КМС — Кандидат в мастера спорта</div>
-    <div class="skill-sport-desc">Годы тренировок, дисциплина и командный дух.<br>Футбол — это не просто игра, это образ жизни.</div>
-  </div>
-</div>
-
-<!-- Programming -->
-<div class="reveal">
-  <div class="skills-group-title">💻 Программирование</div>
-
-  <div class="skill-item">
-    <div class="skill-header">
-      <div class="skill-name">JavaScript</div>
-      <div class="skill-pct">70%</div>
-    </div>
-    <div class="skill-bar-bg"><div class="skill-bar-fill" data-pct="70"></div></div>
-  </div>
-
-  <div class="skill-item">
-    <div class="skill-header">
-      <div class="skill-name">Go</div>
-      <div class="skill-pct">70%</div>
-    </div>
-    <div class="skill-bar-bg"><div class="skill-bar-fill" data-pct="70"></div></div>
-  </div>
-
-  <div class="skill-item">
-    <div class="skill-header">
-      <div class="skill-name">React</div>
-      <div class="skill-pct">65%</div>
-    </div>
-    <div class="skill-bar-bg"><div class="skill-bar-fill" data-pct="65"></div></div>
-  </div>
-
-  <div class="skill-item">
-    <div class="skill-header">
-      <div class="skill-name">Python</div>
-      <div class="skill-pct">60%</div>
-    </div>
-    <div class="skill-bar-bg"><div class="skill-bar-fill" data-pct="60"></div></div>
-  </div>
-
-  <div class="skill-item">
-    <div class="skill-header">
-      <div class="skill-name">SQL</div>
-      <div class="skill-pct">60%</div>
-    </div>
-    <div class="skill-bar-bg"><div class="skill-bar-fill" data-pct="60"></div></div>
-  </div>
-
-  <div class="skill-item">
-    <div class="skill-header">
-      <div class="skill-name">Node.js</div>
-      <div class="skill-pct">55%</div>
-    </div>
-    <div class="skill-bar-bg"><div class="skill-bar-fill" data-pct="55"></div></div>
-  </div>
-
-  <div class="skill-item" style="margin-bottom:0;">
-    <div class="skill-header">
-      <div class="skill-name">И многое другое...</div>
-      <div class="skill-pct" style="color:var(--text-muted);font-size:16px;">∞</div>
-    </div>
-    <div class="skill-bar-bg"><div class="skill-bar-fill" data-pct="50" style="background:linear-gradient(90deg,rgba(201,168,76,0.3),rgba(201,168,76,0.1));"></div></div>
-  </div>
-
-</div>
-
   </div>
 </section>
 
@@ -1399,30 +1270,6 @@ footer { flex-direction: column; gap: 24px; padding: 48px 32px; }
 
 
 
-  })();
-
-  // ═══ SKILLS BARS ═══
-  (function() {
-    const bars = document.querySelectorAll('.skill-bar-fill');
-    bars.forEach(b => { b.style.width = '0%'; b.style.transition = 'none'; });
-
-    function animateBars() {
-      bars.forEach((b, i) => {
-        const pct = b.getAttribute('data-pct');
-        const rect = b.getBoundingClientRect();
-        if (rect.top < window.innerHeight - 40) {
-          setTimeout(() => {
-            b.style.transition = 'width 1.4s cubic-bezier(0.4,0,0.2,1)';
-            b.style.width = pct + '%';
-          }, i * 120);
-          b._done = true;
-        }
-      });
-      if ([...bars].some(b => !b._done)) requestAnimationFrame(animateBars);
-    }
-
-    setTimeout(animateBars, 400);
-    window.addEventListener('scroll', animateBars, { passive: true });
   })();
 
   // ═══ COUNTDOWN ═══
