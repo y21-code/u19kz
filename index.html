@@ -538,6 +538,175 @@ footer { flex-direction: column; gap: 24px; padding: 48px 32px; }
 }
 </style>
 
+<!-- Firebase -->
+
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+  import { getDatabase, ref, push, onValue, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-database.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyCLGbaMJmVwFCG-GsA2GevXH2DCXYSm3R0",
+    authDomain: "u19kz-17bba.firebaseapp.com",
+    databaseURL: "https://u19kz-17bba-default-rtdb.firebaseio.com",
+    projectId: "u19kz-17bba",
+    storageBucket: "u19kz-17bba.firebasestorage.app",
+    messagingSenderId: "371709367202",
+    appId: "1:371709367202:web:8a14950f31300bc0be58fb"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const db = getDatabase(app);
+
+  // ── GUESTBOOK ──
+  function renderGB(entries) {
+    const container = document.getElementById('gbEntries');
+    if (!container) return;
+    if (!entries || !Object.keys(entries).length) {
+      container.innerHTML = '<div class="gb-empty">Будь первым кто оставит сообщение ✨</div>';
+      return;
+    }
+    const arr = Object.values(entries).reverse();
+    container.innerHTML = arr.map(e => `
+      <div class="gb-entry">
+        <div class="gb-entry-header">
+          <div class="gb-entry-name">${e.name || 'Аноним'}</div>
+          <div class="gb-entry-date">${e.date || ''}</div>
+        </div>
+        <div class="gb-entry-msg">${e.msg}</div>
+        <div class="gb-badge">🏅 Был у Abdulla</div>
+      </div>
+    `).join('');
+  }
+
+  // Load guestbook
+  onValue(ref(db, 'guestbook'), snap => renderGB(snap.val()));
+
+  // Submit guestbook
+  window._fbSubmitGB = function() {
+    const name = document.getElementById('gbName').value.trim();
+    const msg = document.getElementById('gbMsg').value.trim();
+    if (!msg) return;
+    const date = new Date().toLocaleDateString('ru', {day:'numeric', month:'long', year:'numeric'});
+    push(ref(db, 'guestbook'), { name, msg, date, ts: Date.now() });
+    document.getElementById('gbName').value = '';
+    document.getElementById('gbMsg').value = '';
+  };
+
+  // ── COLLAB ──
+  function renderCollab(entries) {
+    const container = document.getElementById('collabEntries');
+    if (!container) return;
+    if (!entries || !Object.keys(entries).length) {
+      container.innerHTML = '<div class="collab-empty">Пока нет идей. Будь первым! 💡</div>';
+      return;
+    }
+    const arr = Object.values(entries).reverse();
+    container.innerHTML = arr.map(e => `
+      <div class="collab-entry">
+        <div class="collab-entry-name">${e.name || 'Аноним'}</div>
+        <div class="collab-entry-idea">${e.idea}</div>
+        <div class="collab-entry-date">${e.date}</div>
+      </div>
+    `).join('');
+  }
+
+  onValue(ref(db, 'collab'), snap => renderCollab(snap.val()));
+
+  window._fbSubmitCollab = function() {
+    const name = document.getElementById('collabName').value.trim();
+    const idea = document.getElementById('collabIdea').value.trim();
+    if (!idea) return;
+    const date = new Date().toLocaleDateString('ru', {day:'numeric', month:'long', year:'numeric'});
+    push(ref(db, 'collab'), { name, idea, date, ts: Date.now() });
+    document.getElementById('collabName').value = '';
+    document.getElementById('collabIdea').value = '';
+  };
+
+  // ── REACTIONS ──
+  const VOTED_KEY = 'abdulla_reacted_v2';
+  let voted = JSON.parse(localStorage.getItem(VOTED_KEY) || '{}');
+
+  function renderReactions(data) {
+    const reactions = [
+      { emoji: '🔥', key: 'fire' },
+      { emoji: '❤️', key: 'heart' },
+      { emoji: '👏', key: 'clap' },
+      { emoji: '🚀', key: 'rocket' },
+    ];
+    const bar = document.getElementById('reactionsBar');
+    if (!bar) return;
+    bar.innerHTML = reactions.map(r => `
+      <button class="reaction-btn ${voted[r.key] ? 'reacted' : ''}"
+        onclick="window._fbReact('${r.key}','${r.emoji}',this)">
+        <span>${r.emoji}</span>
+        <span class="reaction-count">${data && data[r.key] ? data[r.key] : 0}</span>
+      </button>
+    `).join('');
+  }
+
+  onValue(ref(db, 'reactions'), snap => renderReactions(snap.val()));
+
+  window._fbReact = function(key, emoji, btn) {
+    if (voted[key]) return;
+    voted[key] = true;
+    localStorage.setItem(VOTED_KEY, JSON.stringify(voted));
+    // Increment in Firebase
+    import("https://www.gstatic.com/firebasejs/10.12.0/firebase-database.js").then(({ get, set }) => {
+      const r = ref(db, 'reactions/' + key);
+      get(r).then(snap => {
+        set(r, (snap.val() || 0) + 1);
+      });
+    });
+    // Burst
+    const burst = document.createElement('div');
+    burst.className = 'reaction-burst';
+    burst.textContent = emoji;
+    btn.appendChild(burst);
+    setTimeout(() => burst.remove(), 1000);
+  };
+
+  // ── BLOG ──
+  function renderBlogFB(entries) {
+    const grid = document.getElementById('blogGrid');
+    if (!grid) return;
+    if (!entries || !Object.keys(entries).length) {
+      grid.innerHTML = '<div class="blog-empty">Пока нет постов. Скоро напишу что-нибудь... ✍️</div>';
+      return;
+    }
+    const arr = Object.values(entries).reverse();
+    grid.innerHTML = arr.map(p => `
+      <div class="blog-post">
+        <div class="blog-post-header">
+          <div class="blog-post-date">${p.date}</div>
+          <div class="blog-post-tag">${p.tag || 'Мысли'}</div>
+        </div>
+        <div class="blog-post-title">${p.title}</div>
+        <div class="blog-post-body">${p.body}</div>
+      </div>
+    `).join('');
+  }
+
+  onValue(ref(db, 'blog'), snap => renderBlogFB(snap.val()));
+
+  window._fbSubmitBlogOLD = function() {
+    const title = document.getElementById('blogTitle').value.trim();
+    const body = document.getElementById('blogBody').value.trim();
+    const tag = document.getElementById('blogTag').value.trim();
+    if (!title || !body) return;
+    const date = new Date().toLocaleDateString('ru', {day:'numeric', month:'long', year:'numeric'});
+    push(ref(db, 'blog'), { title, body, tag, date, ts: Date.now() });
+    document.getElementById('blogTitle').value = '';
+    document.getElementById('blogBody').value = '';
+    document.getElementById('blogTag').value = '';
+    document.getElementById('blogModal').classList.remove('open');
+  };
+
+  // Make db globally accessible for AI chat
+  window._firebaseDB = db;
+  window._firebaseRef = ref;
+  window._firebasePush = push;
+</script>
+
 </head>
 <body>
 <div class="cursor" id="cursor"></div>
@@ -569,6 +738,7 @@ footer { flex-direction: column; gap: 24px; padding: 48px 32px; }
   </div>
   <div class="hero-right" style="display:flex;align-items:center;justify-content:center;position:relative;">
 
+```
 <!-- Decorative lines -->
 <div style="position:absolute;top:60px;right:60px;width:80px;height:1px;background:rgba(201,168,76,0.3);"></div>
 <div style="position:absolute;top:60px;right:60px;width:1px;height:80px;background:rgba(201,168,76,0.3);"></div>
@@ -604,6 +774,7 @@ footer { flex-direction: column; gap: 24px; padding: 48px 32px; }
     <div style="font-size:9px;letter-spacing:0.4em;color:rgba(201,168,76,0.8);text-transform:uppercase;margin-top:4px;">@u19kz</div>
   </div>
 </div>
+```
 
   </div>
   </div>
@@ -930,6 +1101,7 @@ footer { flex-direction: column; gap: 24px; padding: 48px 32px; }
   <div class="section-label">Челлендж месяца</div>
   <div class="challenge-layout">
 
+```
 <!-- LEFT: Active challenge + timer -->
 <div class="active-challenge-wrap reveal">
   <div class="no-challenge-msg" id="noChallengeMsg">
@@ -975,6 +1147,7 @@ footer { flex-direction: column; gap: 24px; padding: 48px 32px; }
     <div class="empty-proposals">Пока нет предложений.<br>Будь первым!</div>
   </div>
 </div>
+```
 
   </div>
 </section>
@@ -1017,6 +1190,7 @@ footer { flex-direction: column; gap: 24px; padding: 48px 32px; }
   </p>
   <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1px;background:rgba(201,168,76,0.1);border:1px solid rgba(201,168,76,0.1);">
 
+```
 <div class="startup-card reveal">
   <div class="startup-tag">Проект №1 · Онлайн</div>
   <div class="startup-name">Forum</div>
@@ -1038,6 +1212,7 @@ footer { flex-direction: column; gap: 24px; padding: 48px 32px; }
   <div class="startup-name">Mini Framework</div>
   <div class="startup-desc">Собственный мини-фреймворк. Хочешь увидеть — дай знать, покажу как это работает.</div>
 </div>
+```
 
   </div>
 </section>
@@ -1174,6 +1349,7 @@ footer { flex-direction: column; gap: 24px; padding: 48px 32px; }
   <div class="section-label">Roadmap</div>
   <div class="roadmap-timeline">
 
+```
 <div class="roadmap-item">
   <div class="roadmap-dot done">✅</div>
   <div class="roadmap-category">Карьера · 2026</div>
@@ -1229,6 +1405,7 @@ footer { flex-direction: column; gap: 24px; padding: 48px 32px; }
   <div class="roadmap-desc">Вывести O-GO на рынки Казахстана, Узбекистана и дальше. Привлечение инвестиций.</div>
   <div class="roadmap-date">Планируется</div>
 </div>
+```
 
   </div>
 </section>
@@ -1571,7 +1748,7 @@ footer { flex-direction: column; gap: 24px; padding: 48px 32px; }
       `).join('');
     }
 
-    document.getElementById('gbSubmit').addEventListener('click', () => {
+    document.getElementById('gbSubmit').addEventListener('click', () => { window._fbSubmitGB && window._fbSubmitGB(); return;
       const name = document.getElementById('gbName').value.trim();
       const msg = document.getElementById('gbMsg').value.trim();
       if (!msg) return;
@@ -1652,21 +1829,21 @@ footer { flex-direction: column; gap: 24px; padding: 48px 32px; }
   (function() {
     const translations = {
       ru: {
-        'hero-tag': 'Portfolio · 2025',
+        'hero-tag': 'Portfolio · 2026',
         'hero-desc-main': 'Футболист. Программист. Стартапер.',
         'hero-desc-sub': 'Человек, который не стоит на месте',
         'about-label': 'О себе',
         'about-h': 'Я не просто играю в футбол и пишу код.',
       },
       en: {
-        'hero-tag': 'Portfolio · 2025',
+        'hero-tag': 'Portfolio · 2026',
         'hero-desc-main': 'Footballer. Developer. Founder.',
         'hero-desc-sub': 'A person who never stands still',
         'about-label': 'About',
         'about-h': "I don't just play football and write code.",
       },
       kz: {
-        'hero-tag': 'Портфолио · 2025',
+        'hero-tag': 'Портфолио · 2026',
         'hero-desc-main': 'Футболшы. Бағдарламашы. Стартапер.',
         'hero-desc-sub': 'Орнында тұрмайтын адам',
         'about-label': 'Мен туралы',
@@ -1902,7 +2079,7 @@ footer { flex-direction: column; gap: 24px; padding: 48px 32px; }
       `).join('');
     }
 
-    document.getElementById('collabSubmit').addEventListener('click', () => {
+    document.getElementById('collabSubmit').addEventListener('click', () => { window._fbSubmitCollab && window._fbSubmitCollab(); return;
       const name = document.getElementById('collabName').value.trim();
       const idea = document.getElementById('collabIdea').value.trim();
       if (!idea) return;
@@ -2134,7 +2311,7 @@ Location: Kazakhstan 🇰🇿`;
     document.getElementById('blogModal').addEventListener('click', function(e) {
       if (e.target === this) this.classList.remove('open');
     });
-    document.getElementById('blogSubmit').addEventListener('click', () => {
+    document.getElementById('blogSubmit').addEventListener('click', () => { window._fbSubmitBlog && window._fbSubmitBlog(); return;
       const title = document.getElementById('blogTitle').value.trim();
       const body = document.getElementById('blogBody').value.trim();
       const tag = document.getElementById('blogTag').value.trim();
@@ -2205,11 +2382,17 @@ Location: Kazakhstan 🇰🇿`;
       history.push({ role: 'user', content: text });
       showTyping();
       try {
+        // Use Anthropic API via Workers proxy
         const res = await fetch('https://api.anthropic.com/v1/messages', {
           method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
+          headers: {
+            'Content-Type': 'application/json',
+            'x-api-key': 'ANTHROPIC_KEY_PLACEHOLDER',
+            'anthropic-version': '2023-06-01',
+            'anthropic-dangerous-direct-browser-access': 'true'
+          },
           body: JSON.stringify({
-            model: 'claude-sonnet-4-20250514',
+            model: 'claude-haiku-4-5-20251001',
             max_tokens: 300,
             system: SYSTEM,
             messages: history
