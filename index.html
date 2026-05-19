@@ -287,70 +287,6 @@
 .lang-btn { font-size: 9px; letter-spacing: 0.15em; color: var(–text-muted); padding: 4px 8px; cursor: pointer; border: none; background: none; font-family: ‘DM Mono’, monospace; transition: color 0.3s; }
 .lang-btn.active { color: var(–gold); }
 
-/* ROADMAP */
-.roadmap-section { padding: 120px 80px; z-index: 2; position: relative; background: var(–dark2); border-top: 1px solid rgba(201,168,76,0.1); }
-.roadmap-timeline { position: relative; margin-top: 60px; padding-left: 40px; }
-.roadmap-timeline::before { content: ‘’; position: absolute; left: 0; top: 0; bottom: 0; width: 1px; background: linear-gradient(to bottom, transparent, rgba(201,168,76,0.3) 10%, rgba(201,168,76,0.3) 90%, transparent); }
-.roadmap-item { position: relative; margin-bottom: 48px; opacity: 0; transform: translateX(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
-.roadmap-item.visible { opacity: 1; transform: translateX(0); }
-.roadmap-dot { position: absolute; left: -48px; top: 4px; width: 16px; height: 16px; border-radius: 50%; border: 1px solid rgba(201,168,76,0.4); display: flex; align-items: center; justify-content: center; font-size: 8px; background: var(–dark2); }
-.roadmap-dot.done { background: rgba(201,168,76,0.15); border-color: var(–gold); }
-.roadmap-dot.progress { background: rgba(201,168,76,0.08); border-color: rgba(201,168,76,0.5); animation: roadmapPulse 2s ease-in-out infinite; }
-@keyframes roadmapPulse { 0%,100% { box-shadow: 0 0 0 0 rgba(201,168,76,0.3); } 50% { box-shadow: 0 0 0 6px rgba(201,168,76,0); } }
-.roadmap-category { font-size: 9px; letter-spacing: 0.4em; color: var(–gold); text-transform: uppercase; margin-bottom: 6px; }
-.roadmap-title { font-family: ‘Cormorant Garamond’, serif; font-size: 22px; font-weight: 300; color: var(–cream); margin-bottom: 6px; }
-.roadmap-desc { font-size: 11px; color: var(–text-muted); line-height: 1.8; }
-.roadmap-date { font-size: 10px; letter-spacing: 0.2em; color: rgba(201,168,76,0.5); margin-top: 6px; }
-
-/* GROWTH TREE */
-.tree-section { padding: 120px 80px; z-index: 2; position: relative; }
-.tree-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; margin-top: 60px; }
-#treeCanvas { display: block; }
-
-/* VISITOR MAP */
-.visitormap-section { padding: 120px 80px; z-index: 2; position: relative; background: var(–dark2); border-top: 1px solid rgba(201,168,76,0.1); }
-.vmap-wrap { position: relative; margin-top: 60px; border: 1px solid rgba(201,168,76,0.15); overflow: hidden; }
-#visitorMapCanvas { display: block; width: 100%; }
-.vmap-counter { position: absolute; top: 20px; right: 20px; font-size: 10px; letter-spacing: 0.3em; color: var(–gold); text-transform: uppercase; }
-
-/* COLLAB WALL */
-.collab-section { padding: 120px 80px; z-index: 2; position: relative; }
-.collab-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; margin-top: 60px; }
-.collab-entries { display: flex; flex-direction: column; gap: 1px; background: rgba(201,168,76,0.08); border: 1px solid rgba(201,168,76,0.1); max-height: 440px; overflow-y: auto; }
-.collab-entries::-webkit-scrollbar { width: 2px; }
-.collab-entries::-webkit-scrollbar-thumb { background: rgba(201,168,76,0.3); }
-.collab-entry { background: var(–dark); padding: 24px 28px; transition: background 0.3s; }
-.collab-entry:hover { background: rgba(201,168,76,0.04); }
-.collab-entry-name { font-size: 11px; color: var(–gold); letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 8px; }
-.collab-entry-idea { font-size: 12px; color: var(–cream); line-height: 1.7; margin-bottom: 8px; }
-.collab-entry-date { font-size: 10px; color: var(–text-muted); }
-.collab-empty { padding: 48px; text-align: center; font-size: 11px; color: var(–text-muted); background: var(–dark); }
-.collab-form { display: flex; flex-direction: column; gap: 12px; }
-
-/* VCARD */
-.vcard-section { padding: 120px 80px; z-index: 2; position: relative; background: var(–dark2); border-top: 1px solid rgba(201,168,76,0.1); }
-.vcard-center { display: flex; flex-direction: column; align-items: center; gap: 40px; margin-top: 60px; }
-.vcard { width: 360px; background: linear-gradient(135deg, #0f0f0d 0%, #1a1a15 50%, #0f0f0d 100%); border: 1px solid rgba(201,168,76,0.3); padding: 48px 40px; position: relative; overflow: hidden; }
-.vcard::before { content: ‘’; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, transparent, var(–gold), transparent); }
-.vcard::after { content: ‘’; position: absolute; bottom: -60px; right: -60px; width: 180px; height: 180px; border-radius: 50%; border: 1px solid rgba(201,168,76,0.06); }
-.vcard-name { font-family: ‘Cormorant Garamond’, serif; font-size: 42px; font-weight: 300; color: var(–cream); letter-spacing: -0.01em; margin-bottom: 4px; }
-.vcard-title { font-size: 10px; letter-spacing: 0.4em; color: var(–gold); text-transform: uppercase; margin-bottom: 32px; }
-.vcard-divider { height: 1px; background: linear-gradient(90deg, rgba(201,168,76,0.3), transparent); margin-bottom: 28px; }
-.vcard-info { display: flex; flex-direction: column; gap: 12px; margin-bottom: 32px; }
-.vcard-row { display: flex; align-items: center; gap: 12px; font-size: 11px; }
-.vcard-row-label { color: var(–text-muted); letter-spacing: 0.2em; font-size: 9px; text-transform: uppercase; min-width: 60px; }
-.vcard-row-val { color: var(–cream); }
-.vcard-qr { width: 80px; height: 80px; position: absolute; bottom: 32px; right: 32px; }
-.vcard-btns { display: flex; gap: 12px; }
-.vcard-btn { flex: 1; background: none; border: 1px solid rgba(201,168,76,0.3); color: var(–cream); font-family: ‘DM Mono’, monospace; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; padding: 14px; cursor: pointer; transition: all 0.3s; }
-.vcard-btn:hover { background: var(–gold); color: var(–dark); border-color: var(–gold); }
-
-@media (max-width: 900px) {
-.roadmap-section, .tree-section, .visitormap-section, .collab-section, .vcard-section { padding: 80px 32px; }
-.tree-layout, .collab-layout { grid-template-columns: 1fr; }
-.float-nav { display: none; }
-}
-
 /* REACTIONS */
 .reactions-bar { position: fixed; bottom: 32px; right: 32px; z-index: 100; display: flex; flex-direction: column; gap: 8px; align-items: center; }
 .reaction-btn { background: rgba(10,10,8,0.9); border: 1px solid rgba(201,168,76,0.2); color: var(–cream); font-size: 18px; width: 52px; height: 52px; border-radius: 50%; cursor: pointer; display: flex; flex-direction: column; align-items: center; justify-content: center; transition: all 0.3s; backdrop-filter: blur(8px); position: relative; }
@@ -375,24 +311,6 @@
 .spin-result { text-align: center; }
 .spin-result-label { font-size: 10px; letter-spacing: 0.4em; color: var(–gold); text-transform: uppercase; margin-bottom: 16px; }
 .spin-result-text { font-family: ‘Cormorant Garamond’, serif; font-size: 24px; font-weight: 300; font-style: italic; color: var(–cream); line-height: 1.5; min-height: 80px; display: flex; align-items: center; justify-content: center; }
-
-/* BLOG */
-.blog-section { padding: 120px 80px; z-index: 2; position: relative; }
-.blog-grid { display: flex; flex-direction: column; gap: 1px; background: rgba(201,168,76,0.1); border: 1px solid rgba(201,168,76,0.1); margin-top: 60px; }
-.blog-post { background: var(–dark); padding: 40px 48px; transition: background 0.3s; position: relative; overflow: hidden; }
-.blog-post::before { content: ‘’; position: absolute; top: 0; left: 0; width: 2px; height: 0; background: var(–gold); transition: height 0.4s; }
-.blog-post:hover { background: rgba(201,168,76,0.03); }
-.blog-post:hover::before { height: 100%; }
-.blog-post-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; }
-.blog-post-date { font-size: 10px; letter-spacing: 0.3em; color: var(–gold); text-transform: uppercase; }
-.blog-post-tag { font-size: 9px; letter-spacing: 0.2em; color: var(–text-muted); border: 1px solid rgba(201,168,76,0.2); padding: 4px 10px; text-transform: uppercase; }
-.blog-post-title { font-family: ‘Cormorant Garamond’, serif; font-size: 26px; font-weight: 300; color: var(–cream); margin-bottom: 12px; }
-.blog-post-body { font-size: 12px; line-height: 2; color: var(–text-muted); }
-.blog-empty { padding: 60px; text-align: center; font-size: 11px; color: var(–text-muted); letter-spacing: 0.2em; background: var(–dark); }
-.blog-add-btn { display: inline-flex; align-items: center; gap: 10px; background: none; border: 1px solid rgba(201,168,76,0.3); color: var(–cream); font-family: ‘DM Mono’, monospace; font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase; padding: 14px 28px; cursor: pointer; transition: all 0.4s; margin-top: 24px; position: relative; overflow: hidden; }
-.blog-add-btn::before { content: ‘’; position: absolute; inset: 0; background: var(–gold); transform: translateX(-100%); transition: transform 0.3s; z-index: -1; }
-.blog-add-btn:hover { color: var(–dark); }
-.blog-add-btn:hover::before { transform: translateX(0); }
 
 /* AI CHAT */
 .ai-section { padding: 120px 80px; z-index: 2; position: relative; background: var(–dark2); border-top: 1px solid rgba(201,168,76,0.1); border-bottom: 1px solid rgba(201,168,76,0.1); }
@@ -431,21 +349,6 @@
 .reactions-bar { bottom: 16px; right: 16px; }
 }
 
-/* CHALLENGE */
-.challenge-section { padding: 120px 80px; z-index: 2; position: relative; background: var(–dark2); border-top: 1px solid rgba(201,168,76,0.1); border-bottom: 1px solid rgba(201,168,76,0.1); overflow: hidden; }
-.challenge-section::before { content: ‘’; position: absolute; top: -200px; right: -200px; width: 500px; height: 500px; border-radius: 50%; background: radial-gradient(circle, rgba(201,168,76,0.04) 0%, transparent 70%); pointer-events: none; }
-.challenge-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; margin-top: 60px; }
-/* Active challenge */
-.active-challenge-wrap { position: relative; }
-.no-challenge-msg { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; padding: 60px 40px; border: 1px dashed rgba(201,168,76,0.2); color: var(–text-muted); font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; text-align: center; min-height: 300px; }
-.no-challenge-msg svg { opacity: 0.2; }
-.active-challenge-box { border: 1px solid rgba(201,168,76,0.25); padding: 40px; position: relative; overflow: hidden; display: none; }
-.active-challenge-box.show { display: block; }
-.active-challenge-box::before { content: ‘’; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, transparent, var(–gold), transparent); animation: shimmer 3s ease-in-out infinite; }
-@keyframes shimmer { 0%,100% { opacity: 0.3; } 50% { opacity: 1; } }
-.challenge-month-label { font-size: 10px; letter-spacing: 0.4em; color: var(–gold); text-transform: uppercase; margin-bottom: 16px; }
-.challenge-title-active { font-family: ‘Cormorant Garamond’, serif; font-size: 28px; font-weight: 300; line-height: 1.3; color: var(–cream); margin-bottom: 8px; }
-.challenge-proposer { font-size: 10px; color: var(–text-muted); letter-spacing: 0.2em; margin-bottom: 32px; }
 /* Timer */
 .timer-wrap { margin: 32px 0; }
 .timer-label { font-size: 10px; letter-spacing: 0.3em; color: var(–text-muted); text-transform: uppercase; margin-bottom: 12px; }
@@ -511,32 +414,6 @@
 .challenge-section { padding: 80px 32px; }
 .challenge-layout { grid-template-columns: 1fr; }
 }
-/* FOOTER */
-footer { padding: 60px 80px; border-top: 1px solid rgba(201,168,76,0.15); display: flex; justify-content: space-between; align-items: center; z-index: 2; position: relative; }
-.footer-name { font-family: ‘Cormorant Garamond’, serif; font-size: 24px; font-weight: 300; letter-spacing: 0.05em; }
-.footer-right { display: flex; align-items: center; gap: 32px; }
-.footer-link { font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase; color: var(–text-muted); text-decoration: none; transition: color 0.3s ease; }
-.footer-link:hover { color: var(–gold); }
-.footer-dot { width: 4px; height: 4px; border-radius: 50%; background: rgba(201,168,76,0.3); }
-@keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
-.reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease, transform 0.8s ease; }
-.reveal.visible { opacity: 1; transform: translateY(0); }
-@media (max-width: 900px) {
-.hero { grid-template-columns: 1fr; }
-.hero-right { height: 50vh; }
-.hero-right::after { background: linear-gradient(to top, var(–dark) 0%, transparent 40%); }
-.hero-left { padding: 60px 32px; }
-.scroll-hint { left: 32px; }
-.section { padding: 80px 32px; }
-.about-grid { grid-template-columns: 1fr; gap: 40px; }
-.stats { grid-template-columns: 1fr; }
-.stat { border-right: none; border-bottom: 1px solid rgba(201,168,76,0.15); }
-.stat:last-child { border-bottom: none; }
-.identity-grid, .startup-grid, .tracks-grid { grid-template-columns: 1fr; }
-.identity-section, .startups-section, .music-section { padding: 80px 32px; }
-footer { flex-direction: column; gap: 24px; padding: 48px 32px; }
-}
-</style>
 
 <!-- Firebase -->
 
@@ -592,36 +469,6 @@ footer { flex-direction: column; gap: 24px; padding: 48px 32px; }
     document.getElementById('gbMsg').value = '';
   };
 
-  // ── COLLAB ──
-  function renderCollab(entries) {
-    const container = document.getElementById('collabEntries');
-    if (!container) return;
-    if (!entries || !Object.keys(entries).length) {
-      container.innerHTML = '<div class="collab-empty">Пока нет идей. Будь первым! 💡</div>';
-      return;
-    }
-    const arr = Object.values(entries).reverse();
-    container.innerHTML = arr.map(e => `
-      <div class="collab-entry">
-        <div class="collab-entry-name">${e.name || 'Аноним'}</div>
-        <div class="collab-entry-idea">${e.idea}</div>
-        <div class="collab-entry-date">${e.date}</div>
-      </div>
-    `).join('');
-  }
-
-  onValue(ref(db, 'collab'), snap => renderCollab(snap.val()));
-
-  window._fbSubmitCollab = function() {
-    const name = document.getElementById('collabName').value.trim();
-    const idea = document.getElementById('collabIdea').value.trim();
-    if (!idea) return;
-    const date = new Date().toLocaleDateString('ru', {day:'numeric', month:'long', year:'numeric'});
-    push(ref(db, 'collab'), { name, idea, date, ts: Date.now() });
-    document.getElementById('collabName').value = '';
-    document.getElementById('collabIdea').value = '';
-  };
-
   // ── REACTIONS ──
   const VOTED_KEY = 'abdulla_reacted_v2';
   let voted = JSON.parse(localStorage.getItem(VOTED_KEY) || '{}');
@@ -663,42 +510,6 @@ footer { flex-direction: column; gap: 24px; padding: 48px 32px; }
     burst.textContent = emoji;
     btn.appendChild(burst);
     setTimeout(() => burst.remove(), 1000);
-  };
-
-  // ── BLOG ──
-  function renderBlogFB(entries) {
-    const grid = document.getElementById('blogGrid');
-    if (!grid) return;
-    if (!entries || !Object.keys(entries).length) {
-      grid.innerHTML = '<div class="blog-empty">Пока нет постов. Скоро напишу что-нибудь... ✍️</div>';
-      return;
-    }
-    const arr = Object.values(entries).reverse();
-    grid.innerHTML = arr.map(p => `
-      <div class="blog-post">
-        <div class="blog-post-header">
-          <div class="blog-post-date">${p.date}</div>
-          <div class="blog-post-tag">${p.tag || 'Мысли'}</div>
-        </div>
-        <div class="blog-post-title">${p.title}</div>
-        <div class="blog-post-body">${p.body}</div>
-      </div>
-    `).join('');
-  }
-
-  onValue(ref(db, 'blog'), snap => renderBlogFB(snap.val()));
-
-  window._fbSubmitBlogOLD = function() {
-    const title = document.getElementById('blogTitle').value.trim();
-    const body = document.getElementById('blogBody').value.trim();
-    const tag = document.getElementById('blogTag').value.trim();
-    if (!title || !body) return;
-    const date = new Date().toLocaleDateString('ru', {day:'numeric', month:'long', year:'numeric'});
-    push(ref(db, 'blog'), { title, body, tag, date, ts: Date.now() });
-    document.getElementById('blogTitle').value = '';
-    document.getElementById('blogBody').value = '';
-    document.getElementById('blogTag').value = '';
-    document.getElementById('blogModal').classList.remove('open');
   };
 
   // Make db globally accessible for AI chat
@@ -1094,76 +905,6 @@ footer { flex-direction: column; gap: 24px; padding: 48px 32px; }
   <div class="gallery-grid" id="galleryGrid"></div>
 </section>
 
-<!-- CHALLENGE -->
-
-<section class="challenge-section">
-  <div class="section-label">Челлендж месяца</div>
-  <div class="challenge-layout">
-
-<!-- LEFT: Active challenge + timer -->
-<div class="active-challenge-wrap reveal">
-  <div class="no-challenge-msg" id="noChallengeMsg">
-    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
-      <circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>
-    </svg>
-    <span>Выбери челлендж из списка<br>— таймер запустится</span>
-  </div>
-  <div class="active-challenge-box" id="activeChallengeBox">
-    <div class="challenge-month-label" id="challengeMonthLabel">Май 2025</div>
-    <div class="challenge-title-active" id="challengeTitleActive">—</div>
-    <div class="challenge-proposer" id="challengeProposer">от —</div>
-    <div class="timer-wrap">
-      <div class="timer-label">⏳ Осталось</div>
-      <div class="timer-display">
-        <div class="timer-unit"><span class="timer-num" id="timerDays">00</span><div class="timer-unit-label">Дней</div></div>
-        <div class="timer-sep">:</div>
-        <div class="timer-unit"><span class="timer-num" id="timerHours">00</span><div class="timer-unit-label">Часов</div></div>
-        <div class="timer-sep">:</div>
-        <div class="timer-unit"><span class="timer-num" id="timerMins">00</span><div class="timer-unit-label">Минут</div></div>
-        <div class="timer-sep">:</div>
-        <div class="timer-unit"><span class="timer-num" id="timerSecs">00</span><div class="timer-unit-label">Секунд</div></div>
-      </div>
-      <div class="timer-progress"><div class="timer-progress-bar" id="timerBar" style="width:0%"></div></div>
-    </div>
-    <div class="challenge-log">
-      <div class="log-label">📋 Мой отчёт</div>
-      <div class="log-entries" id="logEntries">
-        <div class="log-entry" style="color:var(--text-muted);font-size:10px;">Ещё нет записей...</div>
-      </div>
-      <button class="log-add-btn" id="logAddBtn">+ Добавить отчёт за сегодня</button>
-    </div>
-  </div>
-</div>
-
-<!-- RIGHT: Proposals -->
-<div class="proposals-wrap reveal">
-  <div class="proposals-header">
-    <div class="proposals-title">Предложения от всех</div>
-    <button class="propose-btn" id="openProposeModal">+ Задать челлендж</button>
-  </div>
-  <div class="proposals-list" id="proposalsList">
-    <div class="empty-proposals">Пока нет предложений.<br>Будь первым!</div>
-  </div>
-</div>
-
-  </div>
-</section>
-
-<!-- Propose Modal -->
-
-<div class="modal-overlay" id="proposeModal">
-  <div class="modal-box">
-    <div class="modal-title">Задать челлендж</div>
-    <div class="modal-sub">Придумай задачу для Abdulla на этот месяц.<br>Он выберет лучший и выполнит его.</div>
-    <input class="modal-name-input" id="proposerName" placeholder="Твоё имя (необязательно)" maxlength="30">
-    <textarea class="modal-input" id="proposalText" rows="4" placeholder="Например: 30 дней без сахара, 100 отжиманий каждый день..." maxlength="200"></textarea>
-    <div class="modal-actions">
-      <button class="modal-submit" id="submitProposal">Отправить</button>
-      <button class="modal-cancel" id="cancelPropose">Отмена</button>
-    </div>
-  </div>
-</div>
-
 <!-- Log Modal -->
 
 <div class="log-modal-overlay" id="logModal">
@@ -1338,150 +1079,6 @@ footer { flex-direction: column; gap: 24px; padding: 48px 32px; }
 
 <div class="reactions-bar" id="reactionsBar"></div>
 
-<!-- ROADMAP -->
-
-<section class="roadmap-section">
-  <div class="section-label">Roadmap</div>
-  <div class="roadmap-timeline">
-
-```
-<div class="roadmap-item">
-  <div class="roadmap-dot done">✅</div>
-  <div class="roadmap-category">Карьера · 2026</div>
-  <div class="roadmap-title">Первые хакатоны</div>
-  <div class="roadmap-desc">Участвовал в AI Vibe Coding, Google Dev Groups, Mangystau Hub — топ проекты, финалы, сертификаты.</div>
-  <div class="roadmap-date">Выполнено</div>
-</div>
-
-<div class="roadmap-item">
-  <div class="roadmap-dot done">✅</div>
-  <div class="roadmap-category">Проекты · 2026</div>
-  <div class="roadmap-title">Forum, Social Network, Mini Framework</div>
-  <div class="roadmap-desc">Создал и запустил собственные проекты — форум с хостингом, социальная сеть, мини-фреймворк.</div>
-  <div class="roadmap-date">Выполнено</div>
-</div>
-
-<div class="roadmap-item">
-  <div class="roadmap-dot done">✅</div>
-  <div class="roadmap-category">Стартап · 2026–2027</div>
-  <div class="roadmap-title">Запуск разработки O-GO и World Travel</div>
-  <div class="roadmap-desc">Начал работу над двумя стартап-проектами. Концепция, MVP, первые итерации.</div>
-  <div class="roadmap-date">Выполнено</div>
-</div>
-
-<div class="roadmap-item">
-  <div class="roadmap-dot progress">⏳</div>
-  <div class="roadmap-category">Стартап · 2026</div>
-  <div class="roadmap-title">Запуск O-GO</div>
-  <div class="roadmap-desc">Официальный запуск приложения O-GO — агрегатор реальных скидок из онлайн и офлайн магазинов.</div>
-  <div class="roadmap-date">1 августа 2026</div>
-</div>
-
-<div class="roadmap-item">
-  <div class="roadmap-dot progress">⏳</div>
-  <div class="roadmap-category">Визы · 2026</div>
-  <div class="roadmap-title">США и Европа</div>
-  <div class="roadmap-desc">Американская виза и Шенген — в процессе. Первые поездки в США, Германию, Испанию, Италию.</div>
-  <div class="roadmap-date">В процессе</div>
-</div>
-
-<div class="roadmap-item">
-  <div class="roadmap-dot" style="border-color:rgba(201,168,76,0.2);">🔮</div>
-  <div class="roadmap-category">Карьера · 2026-2027+</div>
-  <div class="roadmap-title">World Travel — полный запуск</div>
-  <div class="roadmap-desc">Запуск второго стартапа — платформа для планирования путешествий с рекомендациями и маршрутами.</div>
-  <div class="roadmap-date">Планируется</div>
-</div>
-
-<div class="roadmap-item">
-  <div class="roadmap-dot" style="border-color:rgba(201,168,76,0.2);">🔮</div>
-  <div class="roadmap-category">Цель · 2026+</div>
-  <div class="roadmap-title">Международная экспансия</div>
-  <div class="roadmap-desc">Вывести O-GO на рынки Казахстана, Узбекистана и дальше. Привлечение инвестиций.</div>
-  <div class="roadmap-date">Планируется</div>
-</div>
-
-  </div>
-</section>
-
-<!-- GROWTH TREE -->
-
-<section class="tree-section">
-  <div class="section-label">Дерево роста</div>
-  <div class="tree-layout">
-    <div class="reveal">
-      <canvas id="treeCanvas" width="400" height="500"></canvas>
-    </div>
-    <div class="reveal">
-      <div style="display:flex;flex-direction:column;gap:20px;">
-        <div style="font-family:'Cormorant Garamond',serif;font-size:36px;font-weight:300;color:var(--cream);margin-bottom:8px;">Каждое достижение<br><em style="color:var(--gold-light);">растит дерево</em></div>
-        <div style="font-size:11px;color:var(--text-muted);line-height:2;">Каждая ветка — это реальное достижение. Хакатоны, проекты, книги, путешествия. Дерево будет расти вместе со мной.</div>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:16px;">
-          <div style="padding:16px;border:1px solid rgba(201,168,76,0.12);font-size:11px;color:var(--text-muted);">🏆 <span style="color:var(--cream);">4</span> хакатона</div>
-          <div style="padding:16px;border:1px solid rgba(201,168,76,0.12);font-size:11px;color:var(--text-muted);">🚀 <span style="color:var(--cream);">2</span> стартапа</div>
-          <div style="padding:16px;border:1px solid rgba(201,168,76,0.12);font-size:11px;color:var(--text-muted);">📚 <span style="color:var(--cream);">6</span> книг</div>
-          <div style="padding:16px;border:1px solid rgba(201,168,76,0.12);font-size:11px;color:var(--text-muted);">🌍 <span style="color:var(--cream);">3</span> страны</div>
-          <div style="padding:16px;border:1px solid rgba(201,168,76,0.12);font-size:11px;color:var(--text-muted);">💻 <span style="color:var(--cream);">6</span> языков</div>
-          <div style="padding:16px;border:1px solid rgba(201,168,76,0.12);font-size:11px;color:var(--text-muted);">🏗️ <span style="color:var(--cream);">3</span> проекта</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- VISITOR MAP -->
-
-<section class="visitormap-section">
-  <div class="section-label">Карта посетителей</div>
-  <div class="vmap-wrap reveal">
-    <canvas id="visitorMapCanvas" height="380"></canvas>
-    <div class="vmap-counter" id="vmapCounter">0 посетителей</div>
-  </div>
-</section>
-
-<!-- COLLAB WALL -->
-
-<section class="collab-section">
-  <div class="section-label">🤝 Коллаборация</div>
-  <div class="collab-layout">
-    <div>
-      <p style="font-size:12px;line-height:2;color:var(--text-muted);margin-bottom:32px;">Есть идея для совместного проекта? <strong style="color:var(--cream);">Напиши — я читаю каждое сообщение.</strong> Лучшие идеи получат ответ лично.</p>
-      <div class="collab-form">
-        <input class="gb-input" id="collabName" placeholder="Имя / Instagram / LinkedIn" maxlength="50">
-        <input class="gb-input" id="collabIdea" placeholder="Твоя идея для коллаборации..." maxlength="200">
-        <button class="gb-submit" id="collabSubmit">Отправить идею</button>
-      </div>
-    </div>
-    <div class="collab-entries" id="collabEntries">
-      <div class="collab-empty">Пока нет идей. Будь первым! 💡</div>
-    </div>
-  </div>
-</section>
-
-<!-- VCARD -->
-
-<section class="vcard-section">
-  <div class="section-label">Визитка</div>
-  <div class="vcard-center">
-    <div class="vcard reveal" id="vcardEl">
-      <div class="vcard-name">Abdulla</div>
-      <div class="vcard-title">Footballer · Developer · Founder</div>
-      <div class="vcard-divider"></div>
-      <div class="vcard-info">
-        <div class="vcard-row"><span class="vcard-row-label">Site</span><span class="vcard-row-val">u19kz.com</span></div>
-        <div class="vcard-row"><span class="vcard-row-label">Insta</span><span class="vcard-row-val">@u19kz</span></div>
-        <div class="vcard-row"><span class="vcard-row-label">Проекты</span><span class="vcard-row-val">O-GO · World Travel</span></div>
-        <div class="vcard-row"><span class="vcard-row-label">Локация</span><span class="vcard-row-val">Kazakhstan 🇰🇿</span></div>
-      </div>
-      <canvas class="vcard-qr" id="qrCanvas"></canvas>
-    </div>
-    <div class="vcard-btns" style="width:360px;">
-      <button class="vcard-btn" onclick="window._copyVcard()">📋 Копировать</button>
-      <button class="vcard-btn" onclick="window._shareVcard()">🔗 Поделиться</button>
-    </div>
-  </div>
-</section>
-
 <!-- SPIN WHEEL -->
 
 <section class="spin-section">
@@ -1499,14 +1096,6 @@ footer { flex-direction: column; gap: 24px; padding: 48px 32px; }
       <div class="spin-result-text" id="spinResultText">Нажми крутить — узнай что-то интересное обо мне</div>
     </div>
   </div>
-</section>
-
-<!-- BLOG -->
-
-<section class="blog-section">
-  <div class="section-label">Мысли & Обновления</div>
-  <div class="blog-grid" id="blogGrid"></div>
-  <button class="blog-add-btn" id="blogAddBtn">+ Написать пост</button>
 </section>
 
 <!-- AI CHAT -->
@@ -1533,35 +1122,6 @@ footer { flex-direction: column; gap: 24px; padding: 48px 32px; }
     </div>
   </div>
 </section>
-
-<!-- BLOG MODAL -->
-
-<div class="modal-overlay" id="blogModal">
-  <div class="modal-box">
-    <div class="modal-title">Новый пост</div>
-    <div class="modal-sub">Поделись мыслями, обновлением по проекту или итогами недели.</div>
-    <input class="modal-name-input" id="blogTitle" placeholder="Заголовок..." maxlength="80">
-    <input class="modal-name-input" id="blogTag" placeholder="Тег: Мысли / O-GO / Футбол / Жизнь..." maxlength="30">
-    <textarea class="modal-input" id="blogBody" rows="5" placeholder="Текст поста..." maxlength="500"></textarea>
-    <div class="modal-actions">
-      <button class="modal-submit" id="blogSubmit">Опубликовать</button>
-      <button class="modal-cancel" id="blogCancel">Отмена</button>
-    </div>
-  </div>
-</div>
-
-<!-- FOOTER -->
-
-<footer>
-  <div class="footer-name">Abdulla</div>
-  <div class="footer-right">
-    <a href="https://instagram.com/u19kz" target="_blank" class="footer-link">Instagram</a>
-    <div class="footer-dot"></div>
-    <span class="footer-link">@u19kz</span>
-    <div class="footer-dot"></div>
-    <span class="footer-link">2026</span>
-  </div>
-</footer>
 
 <script>
   // Cursor
@@ -1851,54 +1411,6 @@ footer { flex-direction: column; gap: 24px; padding: 48px 32px; }
     };
   })();
 
-  // ═══ ROADMAP REVEAL ═══
-  (function() {
-    const items = document.querySelectorAll('.roadmap-item');
-    const obs = new IntersectionObserver(entries => {
-      entries.forEach((e, i) => {
-        if (e.isIntersecting) { setTimeout(() => e.target.classList.add('visible'), i * 150); obs.unobserve(e.target); }
-      });
-    }, { threshold: 0.1 });
-    items.forEach(el => obs.observe(el));
-  })();
-
-  // ═══ GROWTH TREE ═══
-  (function() {
-    const canvas = document.getElementById('treeCanvas');
-    if (!canvas) return;
-    const ctx = canvas.getContext('2d');
-    const W = 400, H = 500;
-    let progress = 0;
-    const achievements = [
-      { label: 'Хакатон 1', color: 'rgba(201,168,76,0.9)' },
-      { label: 'Хакатон 2', color: 'rgba(201,168,76,0.8)' },
-      { label: 'Хакатон 3', color: 'rgba(201,168,76,0.7)' },
-      { label: 'Хакатон 4', color: 'rgba(201,168,76,0.9)' },
-      { label: 'O-GO', color: 'rgba(232,208,138,0.9)' },
-      { label: 'World Travel', color: 'rgba(232,208,138,0.8)' },
-      { label: 'Forum', color: 'rgba(201,168,76,0.7)' },
-      { label: 'Social Net', color: 'rgba(201,168,76,0.6)' },
-      { label: 'Framework', color: 'rgba(201,168,76,0.8)' },
-      { label: 'Казахстан', color: 'rgba(232,208,138,0.7)' },
-      { label: 'Узбекистан', color: 'rgba(201,168,76,0.6)' },
-      { label: 'Азербайджан', color: 'rgba(201,168,76,0.7)' },
-      { label: 'КМС Футбол', color: 'rgba(232,208,138,1)' },
-      { label: 'Кийосаки', color: 'rgba(201,168,76,0.5)' },
-      { label: 'Трейси', color: 'rgba(201,168,76,0.5)' },
-      { label: 'Кехо', color: 'rgba(201,168,76,0.5)' },
-    ];
-
-    function drawBranch(x, y, angle, length, depth, maxDepth) {
-      if (depth > maxDepth || length < 4) return;
-      const endX = x + Math.cos(angle) * length;
-      const endY = y - Math.sin(angle) * length;
-      const alpha = Math.min(1, progress * 1.5) * (0.3 + (depth/maxDepth) * 0.5);
-      ctx.beginPath();
-      ctx.moveTo(x, y);
-      ctx.lineTo(endX, endY);
-      ctx.strokeStyle = `rgba(201,168,76,${alpha * 0.7})`;
-      ctx.lineWidth = Math.max(0.5, (maxDepth - depth + 1) * 1.2);
-      ctx.stroke();
       // Leaves at tips
       if (depth === maxDepth && progress > 0.5) {
         const leafAlpha = (progress - 0.5) * 2;
@@ -1965,97 +1477,6 @@ footer { flex-direction: column; gap: 24px; padding: 48px 32px; }
     obs.observe(canvas);
   })();
 
-  // ═══ VISITOR MAP ═══
-  (function() {
-    const KEY = 'abdulla_visitors';
-    const canvas = document.getElementById('visitorMapCanvas');
-    if (!canvas) return;
-    const ctx = canvas.getContext('2d');
-
-    // Known locations + current visitor
-    const knownCities = [
-      { name: 'Алматы', lat: 43.2, lng: 76.9 },
-      { name: 'Нур-Султан', lat: 51.1, lng: 71.4 },
-      { name: 'Ташкент', lat: 41.3, lng: 69.2 },
-      { name: 'Баку', lat: 40.4, lng: 49.9 },
-      { name: 'Москва', lat: 55.7, lng: 37.6 },
-      { name: 'Лондон', lat: 51.5, lng: -0.1 },
-      { name: 'Берлин', lat: 52.5, lng: 13.4 },
-      { name: 'Нью-Йорк', lat: 40.7, lng: -74.0 },
-      { name: 'Дубай', lat: 25.2, lng: 55.3 },
-      { name: 'Стамбул', lat: 41.0, lng: 28.9 },
-    ];
-
-    let visitors = JSON.parse(localStorage.getItem(KEY) || '[]');
-    // Add current visit
-    const randCity = knownCities[Math.floor(Math.random() * knownCities.length)];
-    visitors.push({ ...randCity, time: Date.now() });
-    if (visitors.length > 50) visitors = visitors.slice(-50);
-    localStorage.setItem(KEY, JSON.stringify(visitors));
-    document.getElementById('vmapCounter').textContent = visitors.length + ' посетителей';
-
-    function latLngToXY(lat, lng, w, h) {
-      const x = (lng + 180) / 360 * w;
-      const y = (90 - lat) / 180 * h;
-      return { x, y };
-    }
-
-    function drawMap() {
-      const W = canvas.offsetWidth || 800;
-      canvas.width = W;
-      const H = 380;
-      canvas.height = H;
-      ctx.clearRect(0, 0, W, H);
-
-      // Background
-      ctx.fillStyle = 'rgba(10,10,8,1)';
-      ctx.fillRect(0, 0, W, H);
-
-      // Grid
-      ctx.strokeStyle = 'rgba(201,168,76,0.05)';
-      ctx.lineWidth = 0.5;
-      for (let i = 0; i <= 12; i++) {
-        ctx.beginPath(); ctx.moveTo(i*W/12, 0); ctx.lineTo(i*W/12, H); ctx.stroke();
-      }
-      for (let i = 0; i <= 6; i++) {
-        ctx.beginPath(); ctx.moveTo(0, i*H/6); ctx.lineTo(W, i*H/6); ctx.stroke();
-      }
-
-      // Visitor dots
-      const now = Date.now();
-      visitors.forEach((v, i) => {
-        const p = latLngToXY(v.lat, v.lng, W, H);
-        const age = (now - v.time) / (1000*60*60*24);
-        const alpha = Math.max(0.2, 1 - age * 0.1);
-        const pulse = (Math.sin(Date.now()*0.002 + i) + 1) / 2;
-
-        // Pulse ring
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, 8 + pulse * 6, 0, Math.PI*2);
-        ctx.strokeStyle = `rgba(201,168,76,${alpha * 0.15})`;
-        ctx.lineWidth = 1;
-        ctx.stroke();
-
-        // Dot
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, 3, 0, Math.PI*2);
-        ctx.fillStyle = `rgba(201,168,76,${alpha})`;
-        ctx.shadowColor = 'rgba(201,168,76,0.8)';
-        ctx.shadowBlur = 8;
-        ctx.fill();
-        ctx.shadowBlur = 0;
-
-        // Label
-        ctx.font = '9px DM Mono, monospace';
-        ctx.fillStyle = `rgba(201,168,76,${alpha * 0.7})`;
-        ctx.fillText(v.name, p.x + 6, p.y - 4);
-      });
-
-      requestAnimationFrame(drawMap);
-    }
-    drawMap();
-  })();
-
   // ═══ COLLAB WALL ═══
   (function() {
     const KEY = 'abdulla_collab';
@@ -2085,54 +1506,6 @@ footer { flex-direction: column; gap: 24px; padding: 48px 32px; }
       render();
     });
     render();
-  })();
-
-  // ═══ VCARD ═══
-  (function() {
-    // Simple QR placeholder
-    const qr = document.getElementById('qrCanvas');
-    if (!qr) return;
-    const ctx = qr.getContext('2d');
-    qr.width = 80; qr.height = 80;
-    ctx.fillStyle = 'rgba(201,168,76,0.1)';
-    ctx.fillRect(0,0,80,80);
-    ctx.strokeStyle = 'rgba(201,168,76,0.4)';
-    ctx.lineWidth = 1;
-    // Draw simple QR-like pattern
-    const cells = 8;
-    const size = 80/cells;
-    const pattern = [
-      [1,1,1,1,1,1,1,0],[1,0,0,0,0,0,1,0],[1,0,1,1,1,0,1,0],
-      [1,0,1,0,1,0,1,0],[1,0,1,1,1,0,1,0],[1,0,0,0,0,0,1,0],
-      [1,1,1,1,1,1,1,0],[0,0,1,0,1,0,0,1]
-    ];
-    pattern.forEach((row, r) => {
-      row.forEach((cell, c) => {
-        if (cell) {
-          ctx.fillStyle = 'rgba(201,168,76,0.7)';
-          ctx.fillRect(c*size+1, r*size+1, size-2, size-2);
-        }
-      });
-    });
-
-    window._copyVcard = function() {
-      const text = `Abdulla
-Footballer · Developer · Founder
-
-Site: u19kz.com
-Instagram: @u19kz
-Projects: O-GO, World Travel
-Location: Kazakhstan 🇰🇿`;
-      navigator.clipboard.writeText(text).then(() => alert('Визитка скопирована! ✅'));
-    };
-    window._shareVcard = function() {
-      if (navigator.share) {
-        navigator.share({ title: 'Abdulla', text: 'Footballer · Developer · Founder', url: 'https://u19kz.com' });
-      } else {
-        navigator.clipboard.writeText('https://u19kz.com');
-        alert('Ссылка скопирована: u19kz.com ✅');
-      }
-    };
   })();
 
   // ═══ REACTIONS ═══
@@ -2271,55 +1644,6 @@ Location: Kazakhstan 🇰🇿`;
       }
       requestAnimationFrame(animate);
     });
-  })();
-
-  // ═══ BLOG ═══
-  (function() {
-    const KEY = 'abdulla_blog';
-    let posts = JSON.parse(localStorage.getItem(KEY) || '[]');
-
-    function renderBlog() {
-      const grid = document.getElementById('blogGrid');
-      if (!posts.length) {
-        grid.innerHTML = '<div class="blog-empty">Пока нет постов. Скоро напишу что-нибудь... ✍️</div>';
-        return;
-      }
-      grid.innerHTML = [...posts].reverse().map(p => `
-        <div class="blog-post">
-          <div class="blog-post-header">
-            <div class="blog-post-date">${p.date}</div>
-            <div class="blog-post-tag">${p.tag || 'Мысли'}</div>
-          </div>
-          <div class="blog-post-title">${p.title}</div>
-          <div class="blog-post-body">${p.body}</div>
-        </div>
-      `).join('');
-    }
-
-    document.getElementById('blogAddBtn').addEventListener('click', () => {
-      document.getElementById('blogModal').classList.add('open');
-    });
-    document.getElementById('blogCancel').addEventListener('click', () => {
-      document.getElementById('blogModal').classList.remove('open');
-    });
-    document.getElementById('blogModal').addEventListener('click', function(e) {
-      if (e.target === this) this.classList.remove('open');
-    });
-    document.getElementById('blogSubmit').addEventListener('click', () => { window._fbSubmitBlog && window._fbSubmitBlog(); return;
-      const title = document.getElementById('blogTitle').value.trim();
-      const body = document.getElementById('blogBody').value.trim();
-      const tag = document.getElementById('blogTag').value.trim();
-      if (!title || !body) return;
-      const date = new Date().toLocaleDateString('ru', {day:'numeric',month:'long',year:'numeric'});
-      posts.push({ title, body, tag, date });
-      localStorage.setItem(KEY, JSON.stringify(posts));
-      document.getElementById('blogTitle').value = '';
-      document.getElementById('blogBody').value = '';
-      document.getElementById('blogTag').value = '';
-      document.getElementById('blogModal').classList.remove('open');
-      renderBlog();
-    });
-    renderBlog();
   })();
 
   // ═══ AI CHAT ═══
